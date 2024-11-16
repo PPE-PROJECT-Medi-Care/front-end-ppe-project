@@ -1,0 +1,42 @@
+<body>
+    
+      <!-- partial:partials/_navbar.html -->
+      
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:partials/_settings-panel.html -->
+        
+       
+        <!-- partial -->
+        <!-- partial:partials/_sidebar.html -->
+    
+    
+    
+        <app-sidebar></app-sidebar>
+
+        <div id="content-wrapper" class="d-flex flex-column">
+  
+          <!-- Main Content -->
+          <div id="content">
+
+            <app-header></app-header>
+
+
+            <div class="container-fluid">
+        <router-outlet></router-outlet>
+       
+    
+      </div>
+      <!-- /.container-fluid -->
+
+  </div>
+     
+ 
+     <!-- main-panel ends -->
+      </div>   
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    
+    
+  </body>

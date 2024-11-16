@@ -1,0 +1,146 @@
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">List of doctors</h1>
+    
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">All doctors</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                            <div class="dataTables_length" id="dataTable_length"><label>Show <select
+                                        name="dataTable_length" aria-controls="dataTable"
+                                        class="custom-select custom-select-sm form-control form-control-sm">
+                                        <option value="10">10</option>
+                                        <option value="25">25</option>
+                                        <option value="50">50</option>
+                                        <option value="100">100</option>
+                                    </select> </label></div>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <div id="dataTable_filter" class="dataTables_filter"><input type="text" name="search" [(ngModel)]="searchText"
+                                        class="form-control form-control-sm" placeholder="search now"
+                                        aria-controls="dataTable"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0"
+                                role="grid" aria-describedby="dataTable_info" style="width: 100%;">
+                                <thead>
+                                    <tr role="row">
+                                        
+                                        <th  tabindex="0" aria-controls="dataTable"
+                                            rowspan="1" colspan="1" 
+                                             style="width: 57px;">
+                                            First Name</th>
+                                        <th  tabindex="0" aria-controls="dataTable" rowspan="1"
+                                            colspan="1"
+                                            style="width: 61px;">Last Name</th>
+                                       
+                                        <th  tabindex="0" aria-controls="dataTable" rowspan="1"
+                                            colspan="1" 
+                                            style="width: 68px;">Speciality</th>
+                                        
+                                    </tr>
+                                </thead>
+                                
+                                <tbody>
+                                     <tr *ngFor="let Doctor of ListDoctors | filter:searchText ">
+                                        
+                                        <th scope="row">{{Doctor.firstName}}</th>
+                                        <th scope="row">{{Doctor.lastName}}</th>
+                                        
+                                        <th scope="row"> {{Doctor.specialityId}}</th> 
+                                      
+                                        <th> <button class="btn btn-danger" (click)="deleteDoctor(Doctor.numE)"> Delete </button> </th>
+                                        <th> <button class="btn btn-warning" (click)="open(content,Doctor)"> Update </button> </th>
+                                        <th> <button class="btn btn-primary"  [routerLink]="['/profiledoctor',Doctor.numE]" > Profile </button> </th>
+                                
+                                 </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row">
+                        
+                        <div class="col-sm-12 col-md-7">
+                            <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
+                                <ul class="pagination">
+                                    <li class="paginate_button page-item previous disabled" id="dataTable_previous"><a
+                                            href="#" aria-controls="dataTable" data-dt-idx="0" tabindex="0"
+                                            class="page-link">Previous</a></li>
+                                    <li class="paginate_button page-item active"><a href="#" aria-controls="dataTable"
+                                            data-dt-idx="1" tabindex="0" class="page-link">1</a></li>
+                                    <li class="paginate_button page-item "><a href="#" aria-controls="dataTable"
+                                            data-dt-idx="2" tabindex="0" class="page-link">2</a></li>
+                                    <li class="paginate_button page-item "><a href="#" aria-controls="dataTable"
+                                            data-dt-idx="3" tabindex="0" class="page-link">3</a></li>
+                                    <li class="paginate_button page-item "><a href="#" aria-controls="dataTable"
+                                            data-dt-idx="4" tabindex="0" class="page-link">4</a></li>
+                                    <li class="paginate_button page-item "><a href="#" aria-controls="dataTable"
+                                            data-dt-idx="5" tabindex="0" class="page-link">5</a></li>
+                                    <li class="paginate_button page-item "><a href="#" aria-controls="dataTable"
+                                            data-dt-idx="6" tabindex="0" class="page-link">6</a></li>
+                                    <li class="paginate_button page-item next" id="dataTable_next"><a href="#"
+                                            aria-controls="dataTable" data-dt-idx="7" tabindex="0"
+                                            class="page-link">Next</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="mb-3">
+          <label for="exampleInputFirst" class="form-label">First Name</label>
+          <input [(ngModel)]="UpdateDoctor.firstName" name="firstName" type="text" class="form-control" id="exampleInputFirst" aria-describedby="nameHelp">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputLast" class="form-label">Last Name</label>
+          <input type="text"  [(ngModel)]="UpdateDoctor.lastName" name="lastName" class="form-control" id="exampleInputLast">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputTel" class="form-label">Telephone Number</label>
+          <input type="text"  [(ngModel)]="UpdateDoctor.telephoneNumber" name="telephoneNumber" class="form-control" id="exampleInputTel">
+        </div> 
+        <div class="mb-3">
+            <label for="exampleInputEmail" class="form-label">Email</label>
+            <input type="text"  [(ngModel)]="UpdateDoctor.email" name="email" class="form-control" id="exampleInputEmail">
+          </div> 
+
+          <div class="mb-3">
+            <label for="exampleInputSp" class="form-label">Speciality</label>
+            <input type="text"  [(ngModel)]="UpdateDoctor.specialityId" name="specialityId" class="form-control" id="exampleInputSp">
+          </div> 
+
+          <div class="mb-3">
+            <label for="exampleInputPrice" class="form-label">OSM Code</label>
+            <input type="text"  [(ngModel)]="UpdateDoctor.codeOMS" name="codeOMS" class="form-control" id="exampleInputPrice">
+          </div> 
+      </form> 
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary mr-1" (click)="Update_Doctor();modal.close('Save click')" >Update</button>
+      <button type="button" class="btn btn-secondary" (click)="modal.close('Save click')">Annuler</button>
+       </div>
+  </ng-template>

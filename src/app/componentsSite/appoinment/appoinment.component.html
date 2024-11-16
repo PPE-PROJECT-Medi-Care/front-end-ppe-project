@@ -1,0 +1,87 @@
+<section class="page-title bg-1">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="block text-center">
+            <span class="text-white">Book your Seat</span>
+            <h1 class="text-capitalize mb-5 text-lg">Appoinment</h1>
+  
+            <!-- <ul class="list-inline breadcumb-nav">
+              <li class="list-inline-item"><a href="index.html" class="text-white">Home</a></li>
+              <li class="list-inline-item"><span class="text-white">/</span></li>
+              <li class="list-inline-item"><a href="#" class="text-white-50">Book your Seat</a></li>
+            </ul> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="section appoinment">
+      <div class="container">
+        <div class="row align-items-center">
+        
+          <div class="col-lg-6 col-md-10 ">
+            <div class="appoinment-wrap mt-5 mt-lg-0">
+              <h2 class="mb-2 title-color">Book appoinment</h2>
+              
+                   <form id="#" class="appoinment-form" [formGroup]="ajoutForm" (ngSubmit)="addApp()">
+                        <div class="row">
+                            
+                          <div class="col-lg-6">
+                            <div class="form-group">
+                                <input id="FNamePatient"  formControlName="FNamePatient" type="text" class="form-control" placeholder="First Name">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                          <div class="form-group">
+                            <input  id="LNamePatient"  formControlName="LNamePatient" type="text" class="form-control" placeholder="Last Name">
+                        </div>
+                        </div>
+    
+                             <div class="col-lg-6">
+                                <div class="form-group">
+                                    <input id="date"  formControlName="date" type="text" class="form-control" placeholder="Date">
+                                </div>
+                                
+                            </div>
+                            <div class="col-lg-6">
+                              <div class="form-group">
+                                  <input id="heure"  formControlName="heure" type="text" class="form-control" placeholder="Time">
+                              </div>
+                              
+                          </div>
+    
+                            <div class="col-lg-6">
+                              <div class="form-group">
+                                <input id="telephoneNumber" formControlName="telephoneNumber" type="Number" class="form-control" placeholder="Phone Number">
+                              </div>
+                            </div>
+                            <div class="col-lg-6">
+                              <div class="form-group">
+                                  <select class="form-control" id="exampleFormControlSelect2">
+                                    <option>Select Doctors</option>
+                                    <option>Software Design</option>
+                                    <option>Development cycle</option>
+                                    <option>Software Development</option>
+                                    <option>Maintenance</option>
+                                    <option>Process Query</option>
+                                    <option>Cost and Duration</option>
+                                    <option>Modal Delivery</option>
+                                  </select>
+                              </div>
+                          </div>
+                        </div>
+                        <div class="form-group-2 mb-4">
+                            <textarea id="description"  formControlName="description" class="form-control" rows="6" placeholder="Your Message"></textarea>
+                        </div>
+                        
+                        <a class="btn btn-main btn-round-full" href="appoinment.html" >Make Appoinment <i class="icofont-simple-right ml-2  "></i></a>
+                    </form>
+                </div>
+          </div>
+        </div>
+      </div>
+    </section>

@@ -1,0 +1,61 @@
+
+          <input type="text" name="search_name" [(ngModel)]="search_name" >
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">All doctors</h4>
+         <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>
+                  User
+                </th>
+                <th>
+                  First name
+                </th>
+                <th>
+                  Progress
+                </th>
+                <th>
+                  Amount
+                </th>
+                <th>
+                  Deadline
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let Etudiant of ListEtudiants|recherche:search_name  ">
+                <td class="py-1">
+                 {{Etudiant.numE}}
+               
+                <td>
+                    {{Etudiant.nomE}} 
+                </td>
+                <td>
+                    {{Etudiant.niveau}} 
+                </td>
+                <td>
+                    {{Etudiant.dateEntree}} 
+                </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn btn-danger btn-sm dropdown-toggle" type="button" id="dropdownMenuSizeButton3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Action
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuSizeButton3">
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#">Accept</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" (click)="DeleteEtudiant(Etudiant.numE)">Refuse</a>
+                        </div>
+                      </div>
+                </td>
+            </tr>
+              
+            </tbody>
+          </table>
+        
+      </div>
+    </div>
+  </div>
