@@ -2,6 +2,8 @@
 
 This Angular application allows patients to easily schedule appointments with doctors. Patients can view available doctors and book an appointment at a convenient time. The app provides a user-friendly interface for both patients and doctors, helping to streamline the appointment booking process.
 
+This project was implemented as part of my PPE project at Sesame University. The main goal was to work with an Angular template and practice Angular features, gaining hands-on experience in building dynamic and interactive web applications.
+
 ## Demo
 
 ![PPE project medi-care Screenshot](screenshots/5.png)
